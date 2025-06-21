@@ -1,4 +1,4 @@
 <div class="container mt-4">
   <h2>Tasks</h2>
-  <app-task *ngFor="let task of tasks$ | async" [task]="task"></app-task>
+  <app-task *ngFor="let task of tasks$ | async" [task]="task" [employees]="employees"></app-task>
 </div>

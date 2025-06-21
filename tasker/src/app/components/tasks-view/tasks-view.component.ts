@@ -5,6 +5,8 @@ import { TaskService } from '../../services/task.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TaskComponent } from '../task/task.component';
+import { EmployeeService } from '../../services/employee.service';
+import { Employee } from '../../models/employee';
 
 @Component({
   standalone: true,
@@ -15,16 +17,15 @@ import { TaskComponent } from '../task/task.component';
 })
 export class TasksViewComponent {
   tasks$!: Observable<Task[]>;
+  employees: Employee[] = [];
   
-  constructor(private taskService: TaskService) {
-    this.tasks$ = new Observable<Task[]>();
-  }
+  constructor(private taskService: TaskService, private employeeService: EmployeeService) {}
   
   ngOnInit(): void {
-    this.loadTasks();
-  }
-  
-  loadTasks(): void {
     this.tasks$ = this.taskService.getTasks();
+
+    this.employeeService.getEmployees().subscribe(data => {
+      this.employees = data;
+    })
   }
 }

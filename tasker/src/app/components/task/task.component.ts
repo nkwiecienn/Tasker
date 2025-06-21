@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Task } from '../../models/task';
 import { CommonModule } from '@angular/common';
+import { Employee } from '../../models/employee';
 
 
 @Component({
@@ -12,4 +13,17 @@ import { CommonModule } from '@angular/common';
 })
 export class TaskComponent {
   @Input() task!: Task;
+  @Input() employees: Employee[] = [];
+
+  assignedBy?: Employee;
+  assignedTo?: Employee;
+
+  ngOnInit(): void {
+    this.assignedBy = this.getEmployee(this.task.assignedBy);
+    this.assignedTo = this.getEmployee(this.task.assignedTo);
+  }
+
+  private getEmployee(id: number): Employee | undefined {
+    return this.employees.find(e => Number(e.id) === id);
+  }
 }
