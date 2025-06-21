@@ -1,21 +1,21 @@
 {
   "employees": [
     {
-      "id": 1,
+      "id": "1",
       "firstname": "Alice",
       "lastname": "Johnson",
       "email": "alice@company.com",
       "role": "manager"
     },
     {
-      "id": 2,
+      "id": "2",
       "firstname": "Bob",
       "lastname": "Smith",
       "email": "bob@company.com",
       "role": "employee"
     },
     {
-      "id": 3,
+      "id": "3",
       "firstname": "Charlie",
       "lastname": "Brown",
       "email": "charlie@company.com",
@@ -24,7 +24,7 @@
   ],
   "tasks": [
     {
-      "id": 101,
+      "id": "101",
       "title": "Prepare Report",
       "description": "Prepare the monthly sales report",
       "date": "2025-06-20",
@@ -33,7 +33,7 @@
       "progress": "assigned"
     },
     {
-      "id": 102,
+      "id": "102",
       "title": "Database Cleanup",
       "description": "Remove outdated entries from the DB",
       "date": "2025-06-21",

@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="mt-4">
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input class="form-control" formControlName="title" placeholder="Title" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" formControlName="description"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Assigned To</label>
+        <select class="form-select" formControlName="assignedTo" required>
+            <option *ngFor="let emp of employees" [value]="emp.id">
+                {{ emp.firstname }} {{ emp.lastname }}
+            </option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Save</button>
+    <button class="btn btn-secondary" type="button" (click)="close.emit()">Cancel</button>
+
+</form>

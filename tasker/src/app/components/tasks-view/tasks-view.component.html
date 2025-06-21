@@ -1,7 +1,10 @@
 <div class="container mt-4">
   <div class="row mb-4">
     <div class="col">
-      <h4>Assigned</h4>
+      <div class="d-flex align-items-center mb-3">
+        <h4 class="mb-0 me-3">Assigned</h4>
+        <button class="btn btn-primary" (click)="showForm = true">+ Add Task</button>
+      </div>
       <app-task *ngFor="let task of assignedTasks" [task]="task" [employees]="employees"></app-task>
     </div>
     <div class="col">
@@ -16,5 +19,11 @@
       <h4>Cancelled</h4>
       <app-task *ngFor="let task of cancelledTasks" [task]="task" [employees]="employees"></app-task>
     </div>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showForm">
+  <div class="modal-content">
+    <app-task-form (close)="onFormClosed()" />
   </div>
 </div>
