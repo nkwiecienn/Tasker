@@ -16,16 +16,30 @@ import { Employee } from '../../models/employee';
   styleUrl: './tasks-view.component.css'
 })
 export class TasksViewComponent {
-  tasks$!: Observable<Task[]>;
+  tasks: Task[] = [];
   employees: Employee[] = [];
   
   constructor(private taskService: TaskService, private employeeService: EmployeeService) {}
   
-  ngOnInit(): void {
-    this.tasks$ = this.taskService.getTasks();
+  get assignedTasks() {
+    return this.tasks.filter(t => t.progress === "assigned");
+  }
 
-    this.employeeService.getEmployees().subscribe(data => {
-      this.employees = data;
-    })
+  get inProgressTasks() {
+    return this.tasks.filter(t => t.progress === "inProgress");
+  }
+
+  get doneTasks() {
+    return this.tasks.filter(t => t.progress === "done");
+  }
+
+  get cancelledTasks() {
+    return this.tasks.filter(t => t.progress === "cancelled");
+  }
+
+  ngOnInit(): void {
+    this.taskService.getTasks().subscribe(data => this.tasks = data);
+
+    this.employeeService.getEmployees().subscribe(data => this.employees = data);
   }
 }

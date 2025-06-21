@@ -3,5 +3,5 @@ export interface Employee {
   firstname: string;
   lastname: string;
   email: string;
-  role: 'manager' | 'employee';
+  role: "manager" | "employee";
 }

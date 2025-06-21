@@ -1,4 +1,3 @@
-- Trzy kolumny tasków - podział na assigned, done, cancelled
 - Taski podzielone na dwa wiersze - moje i innych
 - Moje podzielone na taski od managera i nadane przeze mnie
 - Dodawanie nowego taska

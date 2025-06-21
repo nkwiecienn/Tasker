@@ -5,6 +5,5 @@ export interface Task {
   date: string;
   assignedBy: number;
   assignedTo: number;
-  done: boolean;
-  cancelled: boolean;
+  progress: "assigned" | "inProgress" | "done" | "cancelled";
 }

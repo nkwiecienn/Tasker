@@ -30,8 +30,7 @@
       "date": "2025-06-20",
       "assignedBy": 1,
       "assignedTo": 2,
-      "done": false,
-      "cancelled": false
+      "progress": "assigned"
     },
     {
       "id": 102,
@@ -40,8 +39,7 @@
       "date": "2025-06-21",
       "assignedBy": 1,
       "assignedTo": 3,
-      "done": false,
-      "cancelled": true
+      "progress": "inProgress"
     }
   ]
 }

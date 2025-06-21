@@ -1,4 +1,20 @@
 <div class="container mt-4">
-  <h2>Tasks</h2>
-  <app-task *ngFor="let task of tasks$ | async" [task]="task" [employees]="employees"></app-task>
+  <div class="row mb-4">
+    <div class="col">
+      <h4>Assigned</h4>
+      <app-task *ngFor="let task of assignedTasks" [task]="task" [employees]="employees"></app-task>
+    </div>
+    <div class="col">
+      <h4>In Progress</h4>
+      <app-task *ngFor="let task of inProgressTasks" [task]="task" [employees]="employees"></app-task>
+    </div>
+    <div class="col">
+      <h4>Done</h4>
+      <app-task *ngFor="let task of doneTasks" [task]="task" [employees]="employees"></app-task>
+    </div>
+    <div class="col">
+      <h4>Cancelled</h4>
+      <app-task *ngFor="let task of cancelledTasks" [task]="task" [employees]="employees"></app-task>
+    </div>
+  </div>
 </div>
