@@ -1,10 +1,12 @@
-import { Employee } from "./employee";
+import { Employee } from './employee';
 
 export interface Task {
-    id: number;
-    assignedBy: Employee;
-    assignedTo: Employee;
-    date: string;
-    description: string;
-    cancelled?: boolean;
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  assignedBy: Employee;
+  assignedTo: Employee;
+  done: boolean;
+  cancelled: boolean;
 }
