@@ -1,6 +1,5 @@
 - Taski podzielone na dwa wiersze - moje i innych
 - Moje podzielone na taski od managera i nadane przeze mnie
-- Edycja taska
 - Usuwanie/unieważnianie/oznaczanie jako gotowy
 - Podział na role
 - Manager

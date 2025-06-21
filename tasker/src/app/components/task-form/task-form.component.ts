@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
 import { TaskService } from '../../services/task.service';
@@ -15,23 +15,39 @@ import { Task } from '../../models/task';
 export class TaskFormComponent {
   form!: FormGroup;
   employees: Employee[] = [];
+  @Output() close = new EventEmitter<void>();
+  @Input() task: Task | null = null;
 
   constructor(
     private employeeService: EmployeeService,
-    private tasksService: TaskService,
+    private taskService: TaskService,
     private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    const today = new Date().toISOString().split('T')[0];
-
     this.form = this.fb.group({
       title: ['', Validators.required],
       description: [''],
-      assignedTo: ['', Validators.required]
+      date: [''],
+      assignedBy: ['', Validators.required],
+      assignedTo: ['', Validators.required],
+      progress: ['assigned', Validators.required]
     });
 
     this.employeeService.getEmployees().subscribe(data => this.employees = data);
+
+    if (this.task) {
+      this.form.patchValue({
+        ...this.task,
+        assignedBy: String(this.task.assignedBy),
+        assignedTo: String(this.task.assignedTo)
+      });
+    } else {
+      this.form.patchValue({
+        date: new Date().toISOString().split('T')[0],
+        progress: 'assigned'
+      });
+    }
   }
 
   submit(): void {
@@ -41,17 +57,20 @@ export class TaskFormComponent {
       const newTask: Task = {
         ...formValues,
         assignedTo: +formValues.assignedTo,
-        assignedBy: 1, 
-        date: new Date().toISOString().split('T')[0],
-        progress: 'assigned' 
+        assignedBy: +formValues.assignedBy, 
+        date: formValues.date,
+        progress: formValues.progress 
       };
 
-      this.tasksService.addTask(newTask).subscribe(() => {
-        this.form.reset();
-        this.close.emit();
-      })
+      if (this.task) {
+        this.taskService.updateTask(this.task.id, newTask).subscribe(() => {
+          this.form.reset();
+          this.close.emit()});
+      } else {
+        this.taskService.addTask(newTask).subscribe(() => {
+          this.form.reset();
+          this.close.emit()});
+      }
     }
   }
-
-  @Output() close = new EventEmitter<void>();
 }

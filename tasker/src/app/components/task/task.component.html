@@ -7,5 +7,6 @@
             <strong>Assigned To:</strong> {{ assignedTo?.firstname }} {{ assignedTo?.lastname }}
         </p>
         <p class="card-text">{{ task.description }}</p>
+        <button class="btn btn-sm btn-outline-secondary" (click)="edit.emit(task)"> Edit </button>
     </div>
 </div>

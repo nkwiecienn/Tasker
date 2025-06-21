@@ -17,6 +17,7 @@ import { TaskFormComponent } from '../task-form/task-form.component';
 export class TasksViewComponent {
   tasks: Task[] = [];
   employees: Employee[] = [];
+  selectedTask: Task | null = null;
   showForm = false;
   
   constructor(private taskService: TaskService, private employeeService: EmployeeService) {}
@@ -42,8 +43,14 @@ export class TasksViewComponent {
   }
 
   onFormClosed(): void {
+    this.selectedTask = null;
     this.showForm = false;
     this.loadTasks();
+  }
+
+  openEdit(task: Task): void {
+    this.selectedTask = task;
+    this.showForm = true;
   }
 
   loadTasks(): void {

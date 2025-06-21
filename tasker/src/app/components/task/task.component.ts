@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../models/task';
 import { CommonModule } from '@angular/common';
 import { Employee } from '../../models/employee';
@@ -14,6 +14,8 @@ import { Employee } from '../../models/employee';
 export class TaskComponent {
   @Input() task!: Task;
   @Input() employees: Employee[] = [];
+  @Output() edit = new EventEmitter<Task>();
+
 
   assignedBy?: Employee;
   assignedTo?: Employee;
