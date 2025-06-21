@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Task } from '../../models/task';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
+  standalone: true,
   selector: 'app-task',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
-
+  @Input() task!: Task;
 }
