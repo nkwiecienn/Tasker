@@ -2,8 +2,9 @@
   <a class="navbar-brand ms-3" href="#">TASKER</a>
 
   <div class="navbar-nav ms-auto">
-    <a class="nav-item nav-link" routerLink="/login">Sign in</a>
-    <a class="nav-item nav-link" routerLink="/register">Sign up</a>
+    <button class="btn btn-danger me-3" *ngIf="isLoggedIn" (click)="logout()">Log out</button>
+    <a class="nav-item nav-link me-3" *ngIf="!isLoggedIn" routerLink="/login">Sign in</a>
+    <a class="nav-item nav-link me-3" *ngIf="!isLoggedIn" routerLink="/register">Sign up</a>
   </div>
 </nav>
 <router-outlet></router-outlet>
