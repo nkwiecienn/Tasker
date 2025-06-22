@@ -41,6 +41,7 @@ export class LoginFormComponent {
       );
 
       if (matched) {
+        localStorage.setItem('currentUser', matched.id);
         localStorage.setItem('role', matched.role);
         this.router.navigate(['/tasks-view']);
       } else {

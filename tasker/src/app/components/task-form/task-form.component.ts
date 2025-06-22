@@ -5,6 +5,7 @@ import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task';
+import { RoleService } from '../../services/role.service';
 
 @Component({
   selector: 'app-task-form',
@@ -22,6 +23,7 @@ export class TaskFormComponent {
   constructor(
     private employeeService: EmployeeService,
     private taskService: TaskService,
+    public roleService: RoleService,
     private fb: FormBuilder
   ) {}
 
@@ -30,7 +32,7 @@ export class TaskFormComponent {
       title: ['', Validators.required],
       description: [''],
       date: [''],
-      assignedBy: ['', Validators.required],
+      assignedBy: [''],
       assignedTo: ['', Validators.required],
       progress: ['assigned', Validators.required]
     });
@@ -47,7 +49,8 @@ export class TaskFormComponent {
       this.form.patchValue({
         date: new Date().toISOString().split('T')[0],
         progress: 'assigned',
-        assignedBy: 1
+        assignedBy: localStorage.getItem("currentUser"),
+        assignedTo: localStorage.getItem("currentUser")
       });
     }
   }

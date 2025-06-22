@@ -1,4 +1,4 @@
-- Taski podzielone na dwa wiersze - moje i innych
-- Moje podzielone na taski od managera i nadane przeze mnie
-- Podział na role
-- Manager
+- AssignedBy manager - białe
+- AssignedBy manager to me - ciemny
+- AssigntBy me to me - jasny
+- przeładowanie employees po wylogowaniu

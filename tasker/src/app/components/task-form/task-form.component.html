@@ -9,7 +9,7 @@
         <textarea class="form-control" formControlName="description"></textarea>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3" *ngIf="roleService.isManager()">
         <label class="form-label">Assigned To</label>
         <select class="form-select" formControlName="assignedTo" required>
             <option *ngFor="let emp of employees" [value]="emp.id">

@@ -3,6 +3,7 @@ import { Task } from '../../models/task';
 import { CommonModule } from '@angular/common';
 import { Employee } from '../../models/employee';
 import { TaskService } from '../../services/task.service';
+import { RoleService } from '../../services/role.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class TaskComponent {
   @Output() edit = new EventEmitter<Task>();
   @Output() move = new EventEmitter<{ task: Task, to: Task['progress'] }>();
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, public roleService: RoleService) {}
 
   assignedBy?: Employee;
   assignedTo?: Employee;
@@ -42,5 +43,46 @@ export class TaskComponent {
 
   moveToCancelled() {
     this.move.emit({ task: this.task, to: "cancelled"});
+  }
+
+  madeByMe(): boolean {
+    if(typeof localStorage === 'undefined') return false;
+    return this.assignedBy?.id === localStorage.getItem("currentUser");
+  }
+
+  madeForMe(): boolean {
+    if(typeof localStorage === 'undefined') return false;
+    return this.assignedTo?.id === localStorage.getItem("currentUser");
+  }
+
+  getTaskClasses(): string {
+    if(typeof localStorage === 'undefined') return '';
+
+    const isAssignedToMe = this.assignedTo?.id === localStorage.getItem("currentUser");
+    const isAssignedByMe = this.assignedBy?.id === localStorage.getItem("currentUser");
+    const isAssignedByManager = this.assignedBy?.role === "manager";
+
+    const progressColors = {
+      assigned: 'red',
+      inProgress: 'blue',
+      done: 'green',
+      cancelled: 'gray'
+    }
+
+    const color = progressColors[this.task.progress];
+
+    if (isAssignedByManager && isAssignedToMe) {
+      return "maganer-to-me";
+    }
+
+    if (isAssignedByManager) {
+      return "manager-to-others";
+    }
+
+    if(isAssignedByMe && isAssignedToMe) {
+      return "me-to-me";
+    }
+
+    return "other";
   }
 }

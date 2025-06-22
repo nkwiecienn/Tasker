@@ -31,6 +31,14 @@
       "email": "c@c.com",
       "password": "Password123!",
       "role": "employee"
+    },
+    {
+      "id": "c59c",
+      "firstname": "manager",
+      "lastname": "manager",
+      "email": "manager@manager.com",
+      "password": "Password123!",
+      "role": "manager"
     }
   ],
   "tasks": [
@@ -51,6 +59,51 @@
       "assignedBy": "1",
       "assignedTo": "3",
       "progress": "done"
+    },
+    {
+      "id": "97f1",
+      "title": "uuuuuuuuu",
+      "description": "uuuuuuuuuuuuuuu",
+      "date": "2025-06-22",
+      "assignedBy": "1",
+      "assignedTo": "580c",
+      "progress": "done"
+    },
+    {
+      "id": "9b38",
+      "title": "iiiiiiiiii",
+      "description": "iiiiiiiiiiiiiiiiiiiiiiiiiii",
+      "date": "2025-06-22",
+      "assignedBy": "580c",
+      "assignedTo": "2",
+      "progress": "done"
+    },
+    {
+      "id": "3e26",
+      "title": "aaaaaaaaaaa",
+      "description": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "date": "2025-06-22",
+      "assignedBy": "580c",
+      "assignedTo": "580c",
+      "progress": "cancelled"
+    },
+    {
+      "id": "541c",
+      "title": "aaaaaaa",
+      "description": "bbbbbbbbbbbbbbbbbbbbbb",
+      "date": "2025-06-22",
+      "assignedBy": "c59c",
+      "assignedTo": "3",
+      "progress": "assigned"
+    },
+    {
+      "id": "3026",
+      "title": "cc",
+      "description": "ccc",
+      "date": "2025-06-22",
+      "assignedBy": "c59c",
+      "assignedTo": "580c",
+      "progress": "assigned"
     }
   ]
 }
