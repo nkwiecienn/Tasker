@@ -6,6 +6,7 @@ import { TaskComponent } from '../task/task.component';
 import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee';
 import { TaskFormComponent } from '../task-form/task-form.component';
+import { Console } from 'console';
 
 @Component({
   standalone: true,
@@ -56,5 +57,26 @@ export class TasksViewComponent {
   loadTasks(): void {
     this.taskService.getTasks().subscribe(data => this.tasks = data);
     this.employeeService.getEmployees().subscribe(data => this.employees = data);
+  }
+
+  moveTask(event: { task: Task, to: Task['progress']}): void {
+    const updated = {
+      ...event.task,
+      progress: event.to
+    };
+
+    this.taskService.updateTask(event.task.id, updated).subscribe(() => {
+      this.loadTasks();
+    })
+  }
+
+  onDeleteTask(): void {
+    if(!this.selectedTask)
+      return;
+    this.taskService.daleteTask(this.selectedTask.id).subscribe(() => {
+      this.selectedTask = null;
+      this.showForm = false;
+      this.loadTasks();
+    });
   }
 }

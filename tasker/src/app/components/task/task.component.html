@@ -1,12 +1,19 @@
 <div class="card mb-3" style="max-width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">{{ task.title }}</h5>
+        <div class="d-flex align-items-center justify-content-between">
+            <h5 class="card-title">{{ task.title }}</h5>
+            <button class="btn btn-sm btn-outline-secondary" *ngIf="task.progress === 'assigned' || task.progress === 'inProgress'" (click)="edit.emit(task)"> Edit </button>
+        </div>
         <h6 class="card-subtitle text-muted mb-2">{{ task.date }}</h6>
         <p class="card-text">
             <strong>Assigned By:</strong> {{ assignedBy?.firstname }} {{ assignedBy?.lastname }}<br>
             <strong>Assigned To:</strong> {{ assignedTo?.firstname }} {{ assignedTo?.lastname }}
         </p>
         <p class="card-text">{{ task.description }}</p>
-        <button class="btn btn-sm btn-outline-secondary" (click)="edit.emit(task)"> Edit </button>
+        <div class="d-flex align-items-center justify-content-between">
+            <button class="btn btn-sm btn-outline-danger" *ngIf="task.progress === 'assigned' || task.progress === 'inProgress'" (click)="move.emit({ task, to: 'cancelled' })"> Cancel </button>
+            <button class="btn btn-sm btn-outline-success" *ngIf="task.progress === 'assigned'"  (click)="move.emit({ task, to: 'inProgress' })"> In Progress -> </button>
+            <button class="btn btn-sm btn-outline-success" *ngIf="task.progress === 'inProgress'" (click)="move.emit({ task, to: 'done' })"> Done -> </button>
+        </div>
     </div>
 </div>

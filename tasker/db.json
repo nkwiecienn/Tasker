@@ -24,13 +24,13 @@
   ],
   "tasks": [
     {
+      "id": "101",
       "title": "Prepare Report uwu",
       "description": "Prepare the monthly sales report",
       "date": "2025-06-20",
       "assignedBy": 1,
       "assignedTo": 2,
-      "progress": "assigned",
-      "id": "101"
+      "progress": "done"
     },
     {
       "id": "102",
@@ -40,6 +40,15 @@
       "assignedBy": 1,
       "assignedTo": 3,
       "progress": "inProgress"
+    },
+    {
+      "id": "c821",
+      "title": "aaaaaaaaa",
+      "description": "aaaaaaaaaaaaaaaaa",
+      "date": "2025-06-22",
+      "assignedBy": 1,
+      "assignedTo": 1,
+      "progress": "cancelled"
     }
   ]
 }

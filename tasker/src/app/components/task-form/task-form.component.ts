@@ -16,6 +16,7 @@ export class TaskFormComponent {
   form!: FormGroup;
   employees: Employee[] = [];
   @Output() close = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<Task>();
   @Input() task: Task | null = null;
 
   constructor(
@@ -45,7 +46,8 @@ export class TaskFormComponent {
     } else {
       this.form.patchValue({
         date: new Date().toISOString().split('T')[0],
-        progress: 'assigned'
+        progress: 'assigned',
+        assignedBy: 1
       });
     }
   }
