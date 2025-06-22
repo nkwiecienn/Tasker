@@ -5,6 +5,7 @@
       "firstname": "Alice",
       "lastname": "Johnson",
       "email": "alice@company.com",
+      "password": "Password123!",
       "role": "manager"
     },
     {
@@ -12,6 +13,7 @@
       "firstname": "Bob",
       "lastname": "Smith",
       "email": "bob@company.com",
+      "password": "Password123!",
       "role": "employee"
     },
     {
@@ -19,6 +21,15 @@
       "firstname": "Charlie",
       "lastname": "Brown",
       "email": "charlie@company.com",
+      "password": "Password123!",
+      "role": "employee"
+    },
+    {
+      "id": "5ede",
+      "firstname": "Natalia",
+      "lastname": "Kwiecień",
+      "email": "f@f.com",
+      "password": "Password123!",
       "role": "employee"
     }
   ],
@@ -39,7 +50,7 @@
       "date": "2025-06-21",
       "assignedBy": 1,
       "assignedTo": 3,
-      "progress": "inProgress"
+      "progress": "done"
     },
     {
       "id": "c821",
