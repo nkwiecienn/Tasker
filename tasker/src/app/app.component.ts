@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { TasksViewComponent } from './components/tasks-view/tasks-view.component';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [TasksViewComponent],
+  imports: [RouterOutlet, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'tasker';
+
+  constructor(
+    private router: Router, 
+  ) {}
 }

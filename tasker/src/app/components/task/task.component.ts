@@ -28,8 +28,8 @@ export class TaskComponent {
     this.assignedTo = this.getEmployee(this.task.assignedTo);
   }
 
-  private getEmployee(id: number): Employee | undefined {
-    return this.employees.find(e => Number(e.id) === id);
+  private getEmployee(id: string): Employee | undefined {
+    return this.employees.find(e => e.id === id);
   }
 
   moveToInProgress() {

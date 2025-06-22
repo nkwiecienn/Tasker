@@ -1,7 +1,6 @@
-- logowanie
+- navbar
 - Taski podzielone na dwa wiersze - moje i innych
 - Moje podzielone na taski od managera i nadane przeze mnie
 - Podział na role
 - Manager
 - Dodać deadline
-- zmienić id na stringa

@@ -18,11 +18,11 @@ export class TaskService {
     return this.http.post<Task>(`${this.tasksUrl}`, task)
   }
 
-  updateTask(id: number, task: Task): Observable<Task> {
+  updateTask(id: string, task: Task): Observable<Task> {
     return this.http.put<Task>(`${this.tasksUrl}/${id}`, task);
   }
 
-  daleteTask(id: number): Observable<void> {
+  daleteTask(id: string): Observable<void> {
     return this.http.delete<void>(`${this.tasksUrl}/${id}`);
   }
 }

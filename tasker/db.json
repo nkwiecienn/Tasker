@@ -25,10 +25,10 @@
       "role": "employee"
     },
     {
-      "id": "5ede",
-      "firstname": "Natalia",
-      "lastname": "Kwiecień",
-      "email": "f@f.com",
+      "id": "580c",
+      "firstname": "c",
+      "lastname": "c",
+      "email": "c@c.com",
       "password": "Password123!",
       "role": "employee"
     }
@@ -39,8 +39,8 @@
       "title": "Prepare Report uwu",
       "description": "Prepare the monthly sales report",
       "date": "2025-06-20",
-      "assignedBy": 1,
-      "assignedTo": 2,
+      "assignedBy": "1",
+      "assignedTo": "3",
       "progress": "done"
     },
     {
@@ -48,18 +48,9 @@
       "title": "Database Cleanup",
       "description": "Remove outdated entries from the DB",
       "date": "2025-06-21",
-      "assignedBy": 1,
-      "assignedTo": 3,
+      "assignedBy": "1",
+      "assignedTo": "3",
       "progress": "done"
-    },
-    {
-      "id": "c821",
-      "title": "aaaaaaaaa",
-      "description": "aaaaaaaaaaaaaaaaa",
-      "date": "2025-06-22",
-      "assignedBy": 1,
-      "assignedTo": 1,
-      "progress": "cancelled"
     }
   ]
 }

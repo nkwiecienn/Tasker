@@ -1,9 +1,9 @@
 export interface Task {
-  id: number;
+  id: string;
   title: string;
   description: string;
   date: string;
-  assignedBy: number;
-  assignedTo: number;
+  assignedBy: string;
+  assignedTo: string;
   progress: "assigned" | "inProgress" | "done" | "cancelled";
 }

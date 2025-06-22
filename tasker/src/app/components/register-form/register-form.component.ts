@@ -3,10 +3,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-register-form',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.css'
 })
@@ -15,7 +17,8 @@ export class RegisterFormComponent {
 
   constructor(
     private employeeService: EmployeeService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +38,7 @@ export class RegisterFormComponent {
     const newEmployee: Employee = { ...this.form.value }; 
 
     this.employeeService.addEmployee(newEmployee).subscribe(() => {
+      this.router.navigate(['/login']);
       this.form.reset();
     });
   }

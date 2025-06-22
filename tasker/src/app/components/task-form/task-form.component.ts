@@ -58,8 +58,8 @@ export class TaskFormComponent {
 
       const newTask: Task = {
         ...formValues,
-        assignedTo: +formValues.assignedTo,
-        assignedBy: +formValues.assignedBy, 
+        assignedTo: formValues.assignedTo,
+        assignedBy: formValues.assignedBy, 
         date: formValues.date,
         progress: formValues.progress 
       };
