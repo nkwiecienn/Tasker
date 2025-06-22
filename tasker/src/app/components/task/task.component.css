@@ -1,21 +1,85 @@
-.bg-red-dark { background-color: #b71c1c; }
-.bg-red-light { background-color: #ffcdd2; }
+.assigned-manager-to-me {
+  background-color: #cc5200;
+  color: white;
+  border: 1px solid #f26419;
+}
 
-.bg-blue-dark { background-color: #0d47a1; }
-.bg-blue-light { background-color: #bbdefb; }
+.assigned-manager-to-others {
+  border: 2px solid #f26419;
+  color: #f26419;
+}
 
-.bg-green-dark { background-color: #1b5e20; }
-.bg-green-light { background-color: #c8e6c9; }
+.assigned-me-to-me {
+  background-color: #ff944d;
+  color: white;
+  border: 1px solid #f26419;
+}
 
-.bg-gray-dark { background-color: #424242; }
-.bg-gray-light { background-color: #e0e0e0; }
+.inProgress-manager-to-me {
+  background-color: #244e6e;
+  color: white;
+  border: 1px solid #33658a;
+}
 
-.text-red { color: #c62828; }
-.text-blue { color: #1565c0; }
-.text-green { color: #2e7d32; }
-.text-gray { color: #616161; }
+.inProgress-manager-to-others {
+  border: 2px solid #33658a;
+  color: #33658a;
+}
 
-.border-red { border: 1px solid #c62828; }
-.border-blue { border: 1px solid #1565c0; }
-.border-green { border: 1px solid #2e7d32; }
-.border-gray { border: 1px solid #616161; }
+.inProgress-me-to-me {
+  background-color: #5c88aa;
+  color: white;
+  border: 1px solid #33658a;
+}
+
+.done-manager-to-me {
+  background-color: #5f733d;
+  color: white;
+  border: 1px solid #758e4f;
+}
+
+.done-manager-to-others {
+  border: 2px solid #758e4f;
+  color: #758e4f;
+}
+
+.done-me-to-me {
+  background-color: #a0b180;
+  color: white;
+  border: 1px solid #758e4f;
+}
+
+.cancelled-manager-to-me {
+  background-color: #6aa8cc;
+  color: white;
+  border: 1px solid #86bbd8;
+}
+
+.cancelled-manager-to-others {
+  border: 2px solid #86bbd8;
+  color: #86bbd8;
+}
+
+.cancelled-me-to-me {
+  background-color: #aed6ec;
+  color: white;
+  border: 1px solid #86bbd8;
+}
+
+.other {
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.action-btn {
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid #f6ae2d;
+  color: #f6ae2d;
+}
+
+.action-btn:hover {
+  background-color: #f6ae2d;
+  border: 1px solid #f6ae2d;
+  color: #fff;
+}

@@ -62,25 +62,16 @@ export class TaskComponent {
     const isAssignedByMe = this.assignedBy?.id === localStorage.getItem("currentUser");
     const isAssignedByManager = this.assignedBy?.role === "manager";
 
-    const progressColors = {
-      assigned: 'red',
-      inProgress: 'blue',
-      done: 'green',
-      cancelled: 'gray'
-    }
-
-    const color = progressColors[this.task.progress];
-
     if (isAssignedByManager && isAssignedToMe) {
-      return "maganer-to-me";
+      return `${this.task.progress}-manager-to-me`;
     }
 
     if (isAssignedByManager) {
-      return "manager-to-others";
+      return `${this.task.progress}-manager-to-others`;
     }
 
     if(isAssignedByMe && isAssignedToMe) {
-      return "me-to-me";
+      return `${this.task.progress}-me-to-me`;
     }
 
     return "other";

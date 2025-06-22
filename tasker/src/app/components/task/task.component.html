@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
             <h5 class="card-title">{{ task.title }}</h5>
-            <button class="btn btn-sm btn-outline-secondary" *ngIf="madeByMe() && task.progress === 'assigned' || task.progress === 'inProgress'" (click)="edit.emit(task)"> Edit </button>
+            <button class="btn btn-sm action-btn edit-btn" *ngIf="madeByMe() && task.progress === 'assigned' || task.progress === 'inProgress'" (click)="edit.emit(task)"> Edit </button>
         </div>
         <h6 class="card-subtitle text-muted mb-2">{{ task.date }}</h6>
         <p class="card-text">
@@ -11,9 +11,9 @@
         </p>
         <p class="card-text">{{ task.description }}</p>
         <div class="d-flex align-items-center justify-content-between">
-            <button class="btn btn-sm btn-outline-danger" *ngIf="roleService.isManager() && !madeByMe() && task.progress === 'assigned' || task.progress === 'inProgress'" (click)="move.emit({ task, to: 'cancelled' })"> Cancel </button>
-            <button class="btn btn-sm btn-outline-success" *ngIf="madeForMe() && task.progress === 'assigned'"  (click)="move.emit({ task, to: 'inProgress' })"> In Progress -> </button>
-            <button class="btn btn-sm btn-outline-success" *ngIf="madeForMe() && task.progress === 'inProgress'" (click)="move.emit({ task, to: 'done' })"> Done -> </button>
+            <button class="btn btn-sm action-btn cancel-btn" *ngIf="(roleService.isManager() && !madeByMe()) && (task.progress === 'assigned' || task.progress === 'inProgress')" (click)="move.emit({ task, to: 'cancelled' })"> Cancel </button>
+            <button class="btn btn-sm action-btn progress-btn" *ngIf="madeForMe() && task.progress === 'assigned'"  (click)="move.emit({ task, to: 'inProgress' })"> In Progress -> </button>
+            <button class="btn btn-sm action-btn done-btn" *ngIf="madeForMe() && task.progress === 'inProgress'" (click)="move.emit({ task, to: 'done' })"> Done -> </button>
         </div>
     </div>
 </div>

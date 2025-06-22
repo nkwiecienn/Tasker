@@ -1,4 +1,1 @@
-- AssignedBy manager - białe
-- AssignedBy manager to me - ciemny
-- AssigntBy me to me - jasny
 - przeładowanie employees po wylogowaniu
